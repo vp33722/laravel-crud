@@ -15,16 +15,16 @@
 
 }}
 </div>
-    
+
 <div class="row">
     <div class="col-md-12">
         <div class="grid simple">
             <div class="grid-body no-border"><br>
                <div class="table-responsive">
                     <table class="table">
-                         {!! $html->table() !!}  
+                         {!! $html->table() !!}
                     </table>
-                </div>        
+                </div>
             </div>
         </div>
     </div>
@@ -34,20 +34,16 @@
 
 @section('page-js')
     <script src="{{asset('js/datatable.js')}}"></script>
-     
+
     {!! $html->scripts() !!}
 
     <script type="text/javascript">
         $('#Application').change(function()
         {
-            if(this.value=="")
-            {
-            location.reload(true);
-            }
-            else
-            {
+
+
                 LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('home') }}?app_id=' + this.value).load();
-            }
+
 
         });
     </script>

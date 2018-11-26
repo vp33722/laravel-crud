@@ -46,14 +46,9 @@
      <script type="text/javascript">
         $('#plateform').change(function()
         {
-            if(this.value=="")
-            {
-            location.reload(true);
-            }
-            else
-            {
-            LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('Application.index') }}?app_platform_id=' + this.value).load();
-            }
+           
+           LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('Application.index') }}?app_platform_id=' + this.value).load();
+        
 
         });
     </script>
