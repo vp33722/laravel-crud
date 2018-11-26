@@ -95,7 +95,7 @@
         <li class="">
 
            <a href="{{route('logout') }}">
-             <i class="fa fa-power-off text-red"></i>   <span>Logout</span>
+             <i class="fa fa-power-off text-red"></i> <span>Logout</span>
             </a>
          
         </li>
