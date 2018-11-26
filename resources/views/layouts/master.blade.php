@@ -94,14 +94,10 @@
 
         <li class="">
 
-           <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
+           <a href="{{route('logout') }}">
              <i class="fa fa-power-off text-red"></i>   <span>Logout</span>
             </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
+         
         </li>
 
       </ul>

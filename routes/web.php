@@ -44,6 +44,7 @@ Route::group([
         Route::post('profile/update','ProfileController@update_profile')->name('profile.update');
 
         Route::get('profiles','ProfileController@index')->name('profiles');
+        Route::get('logout','Auth\LoginController@logout')->name('logout');
 
     });
 
