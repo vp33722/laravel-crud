@@ -3,9 +3,6 @@
 @section('content')
 
 <h3 class="panel-heading">All Applications</h3>
-<button class="btn btn-success" onclick="location.reload(true)">
-    <i class="fa-fa-refresh text-green"></i>Refresh
-</button>
 <a href="{{route('Application.create')}}" class="btn btn-primary" style="float: right; margin-left: 30px;">ADD NEW</a>
 <div class="form-group" style="float: right;width:300px; margin-left: 20px;">
 {{
@@ -46,8 +43,7 @@
      <script type="text/javascript">
         $('#plateform').change(function()
         {
-           
-           LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('Application.index') }}?app_platform_id=' + this.value).load();
+               LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('Application.index') }}?app_platform_id=' + this.value).load();
         
 
         });

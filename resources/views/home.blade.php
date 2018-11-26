@@ -4,8 +4,6 @@
 
 <h3 class="panel-heading">All Users</h3>
 
-<button class="btn btn-success" onclick="location.reload(true)"><i class="fa-fa-refresh text-green"></i>Refresh</button>
-
 <div class="form-group" style="float: right;width:300px;">
 {{
      html()
@@ -41,8 +39,7 @@
         $('#Application').change(function()
         {
 
-
-                LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('home') }}?app_id=' + this.value).load();
+              LaravelDataTables["dataTableBuilder"].ajax.url('{{ route('home') }}?app_id=' + this.value).load();
 
 
         });
