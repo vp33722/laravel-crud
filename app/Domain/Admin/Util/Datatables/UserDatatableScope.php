@@ -99,9 +99,9 @@ class UserDatatableScope extends UserBaseDatatableScope
     {
 
         if (request()->get('app_id')) {
-            $query = Appuser::select('appusers.*')->with(['application', 'application.plateforms'])->where('app_id', request()->get('app_id'))->whereNotNull('apps.deleted_at'));
+            $query = Appuser::select('appusers.*')->with(['application', 'application.plateforms'])->where('app_id', request()->get('app_id'));
         } else {
-            $query = Appuser::select('appusers.*')->with(['application', 'application.plateforms'])->whereNotNull('apps.deleted_at');
+            $query = Appuser::select('appusers.*')->with(['application', 'application.plateforms']);
         }
 
         return datatables()->eloquent($query)->addColumn('actions', function ($model) {
