@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileRequest extends FormRequest
@@ -23,17 +24,19 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
-        
+        $id = Auth::user()->id;
+
         $rules = [
-           
-            'name'=>'required',
+
+            'name'  => 'required',
+            'email' => 'required|unique:users,email,' .$id,
         ];
 
-            $rules = array_merge($rules,[
-                'password'=>'nullable',
-                'new-password'=>'required_with:password',
-                'confirm-password'=>'required_with:new-password|same:new-password'
-            ]);
+        $rules = array_merge($rules, [
+            'password'         => 'nullable',
+            'new-password'     => 'required_with:password',
+            'confirm-password' => 'required_with:new-password|same:new-password',
+        ]);
 
         return $rules;
     }

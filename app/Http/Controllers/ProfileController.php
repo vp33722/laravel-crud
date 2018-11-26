@@ -23,12 +23,13 @@ class ProfileController extends Controller
     {
         if ($request->get('password')) {
             if (Hash::check($request->get('password'), Auth::user()->password)) {
-                
+
                 $updates = User::where('id', Auth::user()->id)->update(
 
                     array(
                         'name'     => $request->get('name'),
                         'password' => bcrypt($request->get('new-password')),
+                        'email'    => $request->get('email'),
 
                     ));
                 if ($updates) {
@@ -40,8 +41,8 @@ class ProfileController extends Controller
             return back();
 
         }
-
-        $users = User::where('id', Auth::user()->id)->update(['name' => $request->get('name')]);
+        
+        $users = User::where('id', Auth::user()->id)->update(['name' => $request->get('name'), 'email' => $request->get('email')]);
 
         if ($users) {
             \Toastr::success('Your Information Updated Successfully');
