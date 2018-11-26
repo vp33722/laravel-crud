@@ -51,7 +51,7 @@ class ApplicationDatatableScope extends BaseDatatableScope
                 'data'      =>'is_only_banner',
                 'name'      =>'is_only_banner',
                 'title'     =>'Is Banner?',
-                
+
             ]
 
         ]);
@@ -76,6 +76,9 @@ class ApplicationDatatableScope extends BaseDatatableScope
                 ->with('editUrl', route('Application.edit', $model->getKey()))
                 ->render();
         })
+         ->editColumn('is_only_banner', function ($model) {
+                return $model->is_only_banner ? 'YES' : 'NO';
+            })
             ->rawColumns(['actions'])
             ->make(true);
     }
