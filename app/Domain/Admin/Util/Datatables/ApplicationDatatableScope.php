@@ -47,6 +47,13 @@ class ApplicationDatatableScope extends BaseDatatableScope
                 'searchable' => false,
             ],
 
+            [
+                'data'      =>'is_only_banner',
+                'name'      =>'is_only_banner',
+                'title'     =>'Is Banner?',
+                
+            ]
+
         ]);
     }
 
@@ -65,7 +72,7 @@ class ApplicationDatatableScope extends BaseDatatableScope
         return datatables()->eloquent($query)->addColumn('actions', function ($model) {
             return view('Application.dtcontrols')
                 ->with('id', $model->getKey())
-                ->with('deleteUrl', route('Application.destroy', $model->getKey()))
+               /* ->with('deleteUrl', route('Application.destroy', $model->getKey()))*/
                 ->with('editUrl', route('Application.edit', $model->getKey()))
                 ->render();
         })

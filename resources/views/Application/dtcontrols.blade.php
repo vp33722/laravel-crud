@@ -1,4 +1,4 @@
-@if(isset($deleteUrl))
+<!-- @if(isset($deleteUrl))
 
  
     {{ html()->form('DELETE', $deleteUrl)->class('dt-delete-form')->open()}}
@@ -10,7 +10,7 @@
         !!}
 @else
     {{ html()->form()->open() }}
-@endif
+@endif -->
 
 @if(isset($editUrl))
     <a href="{!! $editUrl !!}" class="btn btn-primary btn-xs" title="Edit">
