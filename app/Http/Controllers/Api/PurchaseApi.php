@@ -23,7 +23,7 @@ class PurchaseApi extends Controller
          $users=Appuser::where('device_id',$request->get('device_id')->update(
 
                 [
-                    $users[$request->get('nameOfFlag')] => true,
+                    $users[$request->get('nameOfFlag')] =>1,
                 ]
 
                 )); 
