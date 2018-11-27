@@ -30,7 +30,7 @@ class ApplicationResourceCollection extends ResourceCollection
               
               if(is_numeric($item)) 
               {
-            $value =(bool)$value;
+            $value =(bool)$item;
              }
          });
 
