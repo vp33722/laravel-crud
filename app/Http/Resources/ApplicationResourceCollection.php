@@ -28,13 +28,13 @@ class ApplicationResourceCollection extends ResourceCollection
         {
            $item =  $item === null ? "" : $item;
               
-              if (is_numeric($item)) 
+              if(is_numeric($item)) 
               {
             $value =(bool)$value;
              }
          });
 
-
+        return $query;
     
     }
 }
