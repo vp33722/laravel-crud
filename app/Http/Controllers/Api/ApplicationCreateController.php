@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Application;
+use App\Plateform;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ApplicationResourceCollection;
 use App\Http\Requests\Admin\Request\ApplicationCreateRequest;
@@ -15,7 +16,7 @@ class ApplicationCreateController extends Controller
 
         if (!empty($apps)) {
             
-            return new ApplicationResourceCollection(Application::all()->where('app_platform_id',$request->get('app_platform_id'))->get());
+            return new ApplicationResourceCollection(Plateform::find($id)->applications);
 
         }
         return response()->json([
