@@ -30,18 +30,12 @@ class ApplicationResourceCollection extends ResourceCollection
           
          });
 
-      /* foreach($query as $key=>$value)
+       foreach($query as $value)
        {
 
-        if($value=="0")
-        {
-            $query[$key]= "false";
-        }
-        else
-        {
-             $query[$key]= "true";
-        }
-       }*/
+            $value->is_force_update = isset($value->is_force_update)?true:false;    
+            $value->is_only_banner = isset($value->is_only_banner)?true:false;    
+       }
        return $query;
     
     }
