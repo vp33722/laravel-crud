@@ -15,7 +15,7 @@ class ApplicationCreateController extends Controller
 
         if (!empty($apps)) {
             
-            return new ApplicationResourceCollection(Application::where('app_platform_id', $request->get('app_platform_id'))->first());
+            return ApplicationResourceCollection::collection(Application::where('app_platform_id', $request->get('app_platform_id'))->first());
 
         }
         return response()->json([
