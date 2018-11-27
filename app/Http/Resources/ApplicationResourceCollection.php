@@ -26,11 +26,22 @@ class ApplicationResourceCollection extends ResourceCollection
 
         array_walk_recursive($query, function (&$item,$key) 
         {
-           $item =  $item === null ? "" : $item;
+           $item =  ($item === null ? "" : $item);
           
          });
 
-        return $query;
+       foreach($query as $key=>$value)
+       {
+
+        if($value=="0")
+        {
+            $query[$key]= "false";
+        }
+        else
+        {
+             $query[$key]= "true";
+        }
+       }
 
     
     }
