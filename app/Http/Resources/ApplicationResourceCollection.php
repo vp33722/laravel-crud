@@ -36,7 +36,7 @@ class ApplicationResourceCollection extends ResourceCollection
             'shareFormat'                   => ($query->share_format) ? $query->share_format : '',
             'contactFormat'                 => ($query->contact_format) ? $query->contact_format :'',
             'developerSite'                 => ($query->developer_site) ? $query->developer_site : '',
-            'developerName'                 => ($query->developer_name) ? $query->developer_name : ''
+            'developerName'                 => ($query->developer_name) ? $query->developer_name : '',
             'developerApps'                 => ($query->developer_apps) ? $query->developer_apps : '',
             'generatedInApp'                => ($query->generated_in_app) ? $query->generated_in_app : '',
             'is_force_update'               => ($query->is_force_update) ? 'YES' : 'No',
