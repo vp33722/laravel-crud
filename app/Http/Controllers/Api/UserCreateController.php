@@ -5,7 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\AppUserCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Http\Requests\Admin\Request\UserRequest;	
-use App\Appuser;		
+use App\Appuser;	
+
 
 class UserCreateController extends Controller
 {

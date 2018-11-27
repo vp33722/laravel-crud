@@ -6,7 +6,7 @@ use App\Http\Resources\AppUserCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 //use App\Http\Requests\Admin\Request\UserRequest;	
 use App\Appuser;		
-
+use Carbon\Carbon;
 class PurchaseApi extends Controller
 {
     public function updateApp(Request $request)
@@ -27,7 +27,7 @@ class PurchaseApi extends Controller
 
                     [
                         $users[$request->get('nameOfFlag')]    =>1,
-                        'last_date_subscription'               =>($request->get('daysToAdd') ? \Carbon\                                    Carbon::now()->addDays
+                        'last_date_subscription'               =>($request->get('daysToAdd') ?                                    Carbon::now()->addDays
                                                                 ($request->get('daysToAdd')) : '',
                     ]
 
