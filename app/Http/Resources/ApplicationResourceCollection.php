@@ -22,13 +22,15 @@ class ApplicationResourceCollection extends ResourceCollection
 
     public function toArray($request)
     {
-        $query=Application::select('apps.*')->where('app_platform_id',$this->id)->get();
+        $query=Application::where('app_platform_id',$this->id)->get();
 
-       return
+        return $query;
+
+      /* return
        [
             'id'                            => $query->id,
             'name'                          => $query->name,
-            'latestVersion'                 => ($query->latest_version) ? $query->latest_version : '',
+            'latestVersion'                 => (string) $query->latest_version,
             'titleOfAd'                     => (string) $query->title_of_ad,
             'messOfAd'                      => (string) $query->messge_of_ad,
             'link'                          => (string) $query->link,
@@ -41,7 +43,7 @@ class ApplicationResourceCollection extends ResourceCollection
             'generatedInApp'                => (string) $query->generated_in_app,
             'is_force_update'               => ($query->is_force_update) ? 'YES' : 'No',
             'is_only_banner'                =>($query->is_only_banner) ? 'YES' : 'NO',
-       ];
+       ];*/
 
     }
 }
