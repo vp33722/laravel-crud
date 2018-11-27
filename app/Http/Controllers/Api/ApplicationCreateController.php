@@ -13,7 +13,7 @@ class ApplicationCreateController extends Controller
 {
     public function getApp(ApplicationCreateRequest $request)
     {
-    	$apps=Application::where('app_platform_id',$request->get('app_platform_id')->get());
+    	$apps=Application::where('app_platform_id',$request->get('app_platform_id'))->get();
 
          return response()->json([
                         'success' => true,
