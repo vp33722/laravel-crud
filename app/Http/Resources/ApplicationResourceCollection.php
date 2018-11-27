@@ -24,13 +24,17 @@ class ApplicationResourceCollection extends ResourceCollection
     {
         $query=Application::where('app_platform_id',$this->id)->get()->toArray();
 
-        array_walk_recursive($query, function (&$item,&$i $key) 
+        array_walk_recursive($query, function (&$item,$key) 
         {
            $item =  $item === null ? "" : $item;
-           $i=      $i=0   ? "true" : "false"; 
+              
+              if (is_numeric($item)) 
+              {
+            $value =(bool)$value;
+             }
          });
 
-        return $query;
+
     
     }
 }
