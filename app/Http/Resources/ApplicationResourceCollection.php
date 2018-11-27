@@ -26,12 +26,7 @@ class ApplicationResourceCollection extends ResourceCollection
 
         array_walk_recursive($query, function (&$item,$key) 
         {
-           $item =  $item === null ? "" : $item;
-              
-              if(is_numeric($item)) 
-              {
-            $value =(bool)$item;
-             }
+           $item =  isset($item)?true:false;      
          });
 
         return $query;
