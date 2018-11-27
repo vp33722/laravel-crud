@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Application;
 use App\Http\Controllers\Controller;
-//use App\Http\Resources\AppUserCollection;
+use App\Http\Resources\ApplicationResourceCollection;
 use App\Http\Requests\Admin\Request\ApplicationCreateRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
