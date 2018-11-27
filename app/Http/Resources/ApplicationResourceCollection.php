@@ -26,33 +26,11 @@ class ApplicationResourceCollection extends ResourceCollection
 
         array_walk_recursive($query, function (&$item, $key) {
            $item =  $item === null ? "" : $item;
-       });
-        
-        
+           $item=   $item === 0    ? "false" : "true";
+         });
 
-       /* $query = array_map(function($v){
-        return (is_null($v)) ? "" : $v;
-    },$query);
-*/
         return $query;
-      /* return
-       [
-            'id'                            => $query->id,
-            'name'                          => $query->name,
-            'latestVersion'                 => (string) $query->latest_version,
-            'titleOfAd'                     => (string) $query->title_of_ad,
-            'messOfAd'                      => (string) $query->messge_of_ad,
-            'link'                          => (string) $query->link,
-            'contactEmail'                  => (string) $query->contact_email,
-            'shareFormat'                   => (string) $query->share_format,
-            'contactFormat'                 => (string) $query->contact_format,
-            'developerSite'                 => (string) $query->developer_site,
-            'developerName'                 => (string) $query->developer_name,
-            'developerApps'                 => (string) $query->developer_apps,
-            'generatedInApp'                => (string) $query->generated_in_app,
-            'is_force_update'               => ($query->is_force_update) ? 'YES' : 'No',
-            'is_only_banner'                =>($query->is_only_banner) ? 'YES' : 'NO',
-       ];*/
+     
 
     }
 }
