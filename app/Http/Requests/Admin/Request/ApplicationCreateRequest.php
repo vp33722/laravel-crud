@@ -28,4 +28,11 @@ class ApplicationCreateRequest extends ApiRequest
             'app_platform_id'=>'required'
         ];
     }
+    public function messages()
+    {
+        return [
+            'app_platform_id.required'=>"Please Enter Plateform Id"
+
+        ];
+    }
 }
