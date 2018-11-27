@@ -42,7 +42,7 @@ class ApplicationResourceCollection extends ResourceCollection
              $query[$key]= "true";
         }
        }
-
+       return $query;
     
     }
 }
