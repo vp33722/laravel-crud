@@ -13,15 +13,15 @@ class ApplicationCreateController extends Controller
     {
         $apps = Application::where('app_platform_id', $request->get('app_platform_id'))->count();
         
-        /*if ($apps>0) {
+        if ($apps>0) {
             return new JsonResponse([
                 'success' => true,
                 'apps'   => new ApplicationResourceCollection($request->get('app_platform_id')),
             ]);
-        }*/
+        }
         return response()->json([
             'success' => false,
-            'Message' => $apps,
+            'Message' => 'OOps No Data found',
         ]);
     }
 }
