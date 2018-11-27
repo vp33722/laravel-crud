@@ -18,15 +18,12 @@ class ApplicationResourceCollection extends ResourceCollection
 
     public function toArray($request)
     {
-        $query=Application::where('app_platform_id',$this->appid)->first();
-
-       return
-       [
-            'id'                            => (string)$this->id,
-            'name'                          => (string)$this->name,
-            'latestVersion'                 => (string)$this->latest_version,
+      return
+        [
+            'id' => $this->id,
+            'name' =>(string)$this->name,
+        ];
             
-       ];
 
     }
 }

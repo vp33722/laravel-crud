@@ -11,12 +11,12 @@ class ApplicationCreateController extends Controller
 {
     public function getApp(ApplicationCreateRequest $request)
     {
-        $apps = Application::where('app_platform_id', $request->get('app_platform_id'))->count();
+        $apps = Application::where('app_platform_id', $request->get('app_platform_id'))->first();
 
-        if ($apps > 0) {
+        if (!empty($apps)) {
             return new JsonResponse([
                 'success' => true,
-                'apps'   => new ApplicationResourceCollection(),
+                'apps'   => new ApplicationResourceCollection($apps),
             ]);
         }
         return response()->json([
