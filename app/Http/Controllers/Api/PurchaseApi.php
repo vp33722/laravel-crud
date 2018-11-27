@@ -20,13 +20,13 @@ class PurchaseApi extends Controller
 
         if(array_key_exists($request->get('nameOfFlag'), $users))
         { 
-         $users=Appuser::where('device_id',$request->get('device_id')->update(
+         $users=Appuser::where('device_id',$request->get('device_id'))->update(
 
                 [
                     $users[$request->get('nameOfFlag')] =>1,
                 ]
 
-                )); 
+                ); 
         }
 
         return $users;
