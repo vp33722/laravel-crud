@@ -25,7 +25,9 @@ class ApplicationResourceCollection extends ResourceCollection
         $query=Application::all()->where('app_platform_id',$this->id)->get()->toArray();
 
 
-        return array_map(function($val){return is_null($val)? "" : $val;},$query);
+        array_map(function($val){return is_null($val)? "" : $val;},$query);
+
+        return $query;
 
        /* $query = array_map(function($v){
         return (is_null($v)) ? "" : $v;
