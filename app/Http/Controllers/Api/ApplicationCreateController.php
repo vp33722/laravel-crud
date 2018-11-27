@@ -13,7 +13,7 @@ class ApplicationCreateController extends Controller
 {
     public function getApp(ApplicationCreateRequest $request)
     {
-    	$apps=Application::where('app_platform_id',$request->get('app_platform_id'))->get();
+    	$apps=Application::where('app_platform_id',$request->get('app_platform_id'))->first();
 
          if(!empty($apps))
          {   
@@ -23,7 +23,7 @@ class ApplicationCreateController extends Controller
                     ]);
         }
         return response()->json([
-                        'success' => true,
+                        'success' => false,
                         'Message' =>'OOps No Data found',
                     ]);
     }
