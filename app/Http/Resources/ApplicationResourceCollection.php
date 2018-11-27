@@ -33,7 +33,7 @@ class ApplicationResourceCollection extends ResourceCollection
             'messOfAd'                      => ($query->messge_of_ad) ? $query->messge_of_ad : '',
             'link'                          => ($query->link) ? $query->link : '',
             'contactEmail'                  => ($query->contact_email) ? $query->contact_email : '',
-            'shareFormat'                   => $query->share_format) ? $query->share_format : '',
+            'shareFormat'                   => ($query->share_format) ? $query->share_format : '',
             'contactFormat'                 => ($query->contact_format) ? $query->contact_format :'',
             'developerSite'                 => ($query->developer_site) ? $query->developer_site : '',
             'developerName'                 => ($query->developer_name) ? $query->developer_name : ''
