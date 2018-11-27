@@ -11,6 +11,9 @@ class PurchaseApi extends Controller
 {
     public function updateApp(Request $request)
     {
+            $days=Carbon::now()->addDay($request->get('daysToAdd'));
+
+
         $users=[
             "isPurchaseAds"=>"purchase_ads",
             "isPurchaseWatermark"=>"is_purchase_watermark",
@@ -26,10 +29,9 @@ class PurchaseApi extends Controller
             ->update(
 
                     [
-                        $users[$request->get('nameOfFlag')]    =>1,
-                        'last_date_of_subscription'            =>($request->get('daysToAdd') ? 
-                            Carbon::now()->addDay($request->get('daysToAdd')); : '',                                    
-                    ];
+                    $users[$request->get('nameOfFlag')]    =>1,
+                    'last_date_of_subscription'            =>($request->get('daysToAdd') ? $days : '',                                  
+                    ]
 
                 ); 
         }
