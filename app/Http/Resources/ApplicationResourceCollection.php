@@ -30,7 +30,7 @@ class ApplicationResourceCollection extends ResourceCollection
           
          });
 
-       foreach($query as $key=>$value)
+      /* foreach($query as $key=>$value)
        {
 
         if($value=="0")
@@ -41,7 +41,7 @@ class ApplicationResourceCollection extends ResourceCollection
         {
              $query[$key]= "true";
         }
-       }
+       }*/
        return $query;
     
     }
