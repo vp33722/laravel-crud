@@ -29,7 +29,7 @@ class ApplicationResourceCollection extends ResourceCollection
             'id'                            => $query->id,
             'name'                          => $query->name,
             'latestVersion'                 => ($query->latest_version) ? $query->latest_version : '',
-            'titleOfAd'                     => ($query->title_of_ad) ? $query->title_of_ad : '',
+            'titleOfAd'                     => (string)$query->title_of_ad,
             'messOfAd'                      => ($query->messge_of_ad) ? $query->messge_of_ad : '',
             'link'                          => ($query->link) ? $query->link : '',
             'contactEmail'                  => ($query->contact_email) ? $query->contact_email : '',
