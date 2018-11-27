@@ -16,7 +16,7 @@ class ApplicationCreateController extends Controller
         if (!empty($apps)) {
             return new JsonResponse([
                 'success' => true,
-                'apps'   => new ApplicationResourceCollection($apps),
+                'apps'   => new ApplicationResourceCollection(),
             ]);
         }
         return response()->json([
