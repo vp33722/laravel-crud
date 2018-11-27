@@ -15,21 +15,21 @@ class ApplicationResourceCollection extends ResourceCollection
      */
     public function __construct($apps)
     {
-        $this->appid=$apps;
+        $this->id=$apps;
 
     }
     
 
     public function toArray($request)
     {
-        $query=Application::where('app_platform_id',$this->appid)->first();
+        $query=Application::where('app_platform_id',$this->id)->first();
 
        return
        [
-            'id'                            => $this->id,
-            'name'                          => $this->name,
+            'id'                            => $query->id,
+            'name'                          => $query->name,
             'latestVersion'                 => ($query->latest_version) ? $query->latest_version : '',
-            /*'titleOfAd'                     => ($query->title_of_ad) ? $query->title_of_ad : '',
+            'titleOfAd'                     => ($query->title_of_ad) ? $query->title_of_ad : '',
             'messOfAd'                      => ($query->messge_of_ad) ? $query->messge_of_ad : '',
             'link'                          => ($query->link) ? $query->link : '',
             'contactEmail'                  => ($query->contact_email) ? $query->contact_email : '',
@@ -40,7 +40,7 @@ class ApplicationResourceCollection extends ResourceCollection
             'developerApps'                 => ($query->developer_apps) ? $query->developer_apps : '',
             'generatedInApp'                => ($query->generated_in_app) ? $query->generated_in_app : '',
             'is_force_update'               => ($query->is_force_update) ? 'YES' : 'No',
-            'is_only_banner'                =>($query->is_only_banner) ? 'YES' : 'NO',*/
+            'is_only_banner'                =>($query->is_only_banner) ? 'YES' : 'NO',
        ];
 
     }
