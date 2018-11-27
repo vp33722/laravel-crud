@@ -28,11 +28,19 @@ class PurchaseApi extends Controller
 
             ->update(
 
-                    [
-                        
+                    /*[
+
                     $users[$request->get('nameOfFlag')]    =>1,
                     'last_date_of_subscription'            =>($request->get('daysToAdd') ? $days : '',                                  
                     ]
+*/
+                      array(
+
+                             $users[$request->get('nameOfFlag')]=>1,
+                             'last_date_of_subscription'=>($request->get('daysToAdd') ? $days : '',  
+
+                      )  
+
 
                 ); 
         }
