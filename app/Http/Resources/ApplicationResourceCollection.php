@@ -24,20 +24,13 @@ class ApplicationResourceCollection extends ResourceCollection
     {
         $query=Application::where('app_platform_id',$this->id)->get()->toArray();
 
-       /* array_walk_recursive($query, function (&$item, $key) {
-            if($item === null){
-                $item = "";
-            }elseif(in_array($item, [0,1])){
-                $item = $item === 0 ? "false" : "true";
-            }
-         });*/
-
-         $query = array_map(function($query){
-        return (is_null($query)) ? "" : $query;
-    },$query);
+        array_walk_recursive($query, function (&$item,&$i $key) 
+        {
+           $item =  $item === null ? "" : $item;
+           $i=      $i=0   ? "true" : "false"; 
+         });
 
         return $query;
-     
-
+    
     }
 }
