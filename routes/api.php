@@ -15,5 +15,5 @@ use Illuminate\Http\Request;
 
 Route::post('users_create','Api\UserCreateController@store');
 Route::get('moreApp','Api\ApplicationCreateController@getApp');
-Route::post('purchaseFunctionality','Api\PurchaseApicontroller@updateApp');
+Route::post('purchaseFunctionality','Api\PurchaseApi@updateApp');
 
