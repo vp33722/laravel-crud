@@ -29,20 +29,7 @@ class ApplicationResourceCollection extends ResourceCollection
            $item =  ($item === null ? "" : $item);
           
          });
-
-       foreach($query as $value)
-       {
-        if($value['is_force_update']==0)
-        {
-            $value['is_force_update']="false";
-        }
-        else
-        {
-            $value['is_force_update']="true";
-        }    
-             
-       }
-       return $query;
+      return $query;
         }
     
     }
