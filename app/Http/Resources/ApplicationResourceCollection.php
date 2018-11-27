@@ -30,7 +30,7 @@ class ApplicationResourceCollection extends ResourceCollection
           
          });
       return $query;
-        }
+        
     
     }
 }
