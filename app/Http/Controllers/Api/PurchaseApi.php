@@ -12,7 +12,7 @@ class PurchaseApi extends Controller
     public function updateApp(Request $request)
     {
             $days=Carbon::now()->addDay($request->get('daysToAdd'));
-
+               return $days;exit; 
 
         $users=[
             "isPurchaseAds"=>"purchase_ads",
@@ -24,22 +24,13 @@ class PurchaseApi extends Controller
         if(array_key_exists($request->get('nameOfFlag'), $users))
         { 
         
-            $users=Appuser::where('device_id',$request->get('device_id'))
+            $users=Appuser::where('device_id',$request->get('device_id'))->update(
 
-            ->update(
+                [
 
-                    /*[
-
-                    $users[$request->get('nameOfFlag')]    =>1,
-                    'last_date_of_subscription'            =>($request->get('daysToAdd') ? $days : '',                                  
-                    ]
-*/
-                      array(
-
-                             $users[$request->get('nameOfFlag')]=>1,
-                             'last_date_of_subscription'=>($request->get('daysToAdd') ? $days; : '',  
-
-                      )  
+        $users[$request->get('nameOfFlag')]  =>1,
+        'last_date_of_subscription'          =>($request->get('daysToAdd') ? $days : '',                                  
+                ]
 
 
                 ); 
