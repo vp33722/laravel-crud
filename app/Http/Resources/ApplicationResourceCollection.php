@@ -28,7 +28,7 @@ class ApplicationResourceCollection extends ResourceCollection
         return (is_null($v)) ? "" : $v;
     },$query);
 
-        return $array;
+        return $query;
       /* return
        [
             'id'                            => $query->id,
