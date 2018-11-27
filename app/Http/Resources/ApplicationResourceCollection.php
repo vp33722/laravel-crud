@@ -22,8 +22,8 @@ class ApplicationResourceCollection extends ResourceCollection
 
       return
         [
-            
-            'name' =>$this->applications->name,
+            'id' => $this->id,
+            'name' =>$this->name,
         ];
             
 
