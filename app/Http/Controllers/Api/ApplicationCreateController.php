@@ -15,11 +15,16 @@ class ApplicationCreateController extends Controller
     {
     	$apps=Application::where('app_platform_id',$request->get('app_platform_id'))->get();
 
+         if(!empty($apps))
+         {   
          return response()->json([
                         'success' => true,
                         'Apps' =>$apps,
                     ]);
-
-    	
+        }
+        return response()->json([
+                        'success' => true,
+                        'Message' =>'OOps No Data found',
+                    ]);
     }
 }
