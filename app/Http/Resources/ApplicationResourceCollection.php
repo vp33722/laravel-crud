@@ -33,7 +33,7 @@ class ApplicationResourceCollection extends ResourceCollection
   
          foreach ($query as $key => $value)
          {
-                if ($value=="0")
+                if ($value==0)
                 {
                 $array[$key] = "false";
                 }
