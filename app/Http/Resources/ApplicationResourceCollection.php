@@ -19,11 +19,11 @@ class ApplicationResourceCollection extends ResourceCollection
     public function toArray($request)
     {
 
-        dd($this->apps);
+
       return
         [
-            'id' => (string)$this->id,
-            'name' =>(string)$this->name,
+            'id' => $this->id,
+            'name' =>$this->name,
         ];
             
 
