@@ -34,13 +34,20 @@ class PurchaseApi extends Controller
 
 
                 ); 
+
+            return new JsonResponse([
+
+                   'success'=>true,
+                   'Data'    =>Appuser::where('device_id',$request->get('device_id'))->first(),    
+
+            ])
         }
 
-        return $users;
-        /*return new JsonResponse([
+        
+        return new JsonResponse([
             'success' => false,
-            'Message' =>'Sorry Try Again',
-        ]);*/
+            'Message' =>'Sorry name of flag is incorrect or device id is not available',
+        ]);
 
     }
 }
