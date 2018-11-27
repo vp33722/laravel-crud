@@ -24,9 +24,21 @@ class ApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            'app_platform_id'  => 'required',
-            
-              ];
+            'name'             => 'required|max:30',
+            'latest_version'   => 'max:10',
+            'title_of_ad'      => 'max:30',
+            'messge_of_ad'     => 'max:256',
+            'link'             => 'max:256',
+            'contact_email'    => 'max:256',
+            'share_format'     => 'max:256',
+            'contact_format'   => 'max:256',
+            'developer_site'   => 'max:256',
+            'developer_name'   => 'max:30',
+            'developer_apps'   => 'max:256',
+            'generated_in_app' => 'max:256',
+
+            /*'contact_email'=>'required|email'*/
+        ];
     }
 
     public function messages()
@@ -34,8 +46,9 @@ class ApplicationRequest extends FormRequest
 
         return
             [
-            'app_platform_id.required' => 'Please Enter Your Plateform Id',
-          
+            'name.required' => 'Please Enter Your Application Name',
+            /*  'contact_email.required'=>'Please Enter Email Address',
+        'contact_email.email'=>'Please Enter Valid Email Address'*/
         ];
     }
 }
