@@ -40,7 +40,7 @@ class PurchaseApi extends Controller
                    'success'=>true,
                    'Data'    =>Appuser::where('device_id',$request->get('device_id'))->first(),    
 
-            ])
+            ]);
         }
 
         
