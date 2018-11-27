@@ -28,8 +28,8 @@ class PurchaseApi extends Controller
 
                 [
 
-                    $users[$request->get('nameOfFlag')]  =>1,
-                    'last_date_of_subscription'          =>($request->get('daysToAdd') ? $days : '',
+                    $users[$request->get('nameOfFlag')]  => '1',
+                    'last_date_of_subscription'          =>'5',
                 ]
 
 
