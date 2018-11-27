@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 
-class ApplicationResourceCollection extends ResourceCollection
+class ApplicationResourceCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -24,8 +24,8 @@ class ApplicationResourceCollection extends ResourceCollection
 
       return
         [
-            'id' => $request->id,
-            'name' =>$request->name
+            'id' => $this->id,
+            'name' =>$this->name
         ];
             
 
