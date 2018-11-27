@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::post('users_create','Api\UserCreateController@store');
-Route::get('moreApp','Api\ApplicationController@getApp')
+Route::get('moreApp','Api\ApplicationController@getApp');
