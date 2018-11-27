@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiRequest;
 
-class ApplicationRequest extends FormRequest
+class UserRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +25,13 @@ class ApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            'app_platform_id'  => 'required',
-            
-              ];
-    }
+            'appId'=>'required|exists:apps,id',
+            'deviceId'=>'required',
+            'country'=>'required',
+            'deviceType'=>'required',
+            'osVersion'=>'required',
+            'appVersion'=>'required'
 
-    public function messages()
-    {
-
-        return
-            [
-            'app_platform_id.required' => 'Please Enter Your Plateform Id',
-          
         ];
     }
 }
