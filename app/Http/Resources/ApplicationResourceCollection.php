@@ -22,13 +22,16 @@ class ApplicationResourceCollection extends ResourceCollection
 
     public function toArray($request)
     {
-        $query=Application::where('app_platform_id',$this->id)->get()->toArray();
+        $query=Application::all()->where('app_platform_id',$this->id)->get()->toArray();
 
-        $query = array_map(function($v){
+
+        return array_map(function($val){return is_null($val)? "" : $val;},$query);
+
+       /* $query = array_map(function($v){
         return (is_null($v)) ? "" : $v;
     },$query);
 
-        return $query;
+        return $query;*/
       /* return
        [
             'id'                            => $query->id,
