@@ -32,11 +32,18 @@ class ApplicationResourceCollection extends ResourceCollection
 
        foreach($query as $value)
        {
-
-            $value['is_force_update'] = isset($value['is_force_update'])?true:false;    
-            $value['is_only_banner'] = isset($value['is_only_banner'])?true:false;    
+        if($value['is_force_update']==0)
+        {
+            $value['is_force_update']="false";
+        }
+        else
+        {
+            $value['is_force_update']="true";
+        }    
+             
        }
        return $query;
+        }
     
     }
 }
