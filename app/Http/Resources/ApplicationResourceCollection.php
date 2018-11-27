@@ -22,7 +22,7 @@ class ApplicationResourceCollection extends ResourceCollection
 
     public function toArray($request)
     {
-        $query=Application::where('app_platform_id',$this->id)->first();
+        $query=Application::where('app_platform_id',$this->id)->get();
 
        return
        [
