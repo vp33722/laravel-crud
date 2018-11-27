@@ -27,8 +27,8 @@ class PurchaseApi extends Controller
 
                     [
                         $users[$request->get('nameOfFlag')]    =>1,
-                        'last_date_subscription'               =>($request->get('daysToAdd') ?                                    Carbon::now()->addDays
-                                                                ($request->get('daysToAdd')) : '',
+                        'last_date_subscription'               =>($request->get('daysToAdd') ? 
+                            Carbon::now()->addDay($request->get('daysToAdd')) : '',                                    
                     ]
 
                 ); 
