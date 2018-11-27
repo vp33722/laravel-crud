@@ -14,14 +14,14 @@ class ApplicationCreateController extends Controller
         $apps = Application::where('app_platform_id', $request->get('app_platform_id'))->count();
         $data=Application::where('app_platform_id', $request->get('app_platform_id'))->first();
 
-        /*if (!empty($apps)) {
+        if($apps>0) {
              
              return new ApplicationResourceCollection($data);
         
-        }*/
+        }
         return response()->json([
-            'success' => true,
-            'Message' => $data,
+            'success' => false,
+            'Message' => 'OOps No Data found',
         ]);
     }
 }
