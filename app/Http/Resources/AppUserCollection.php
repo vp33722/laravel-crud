@@ -17,14 +17,14 @@ class AppUserCollection extends ResourceCollection
 
     public function __construct($users)
     {
-        $this->id = $users->id;
+        $this->id = $users;
 
     }
 
     public function toArray($request)
     {
 
-        $query = Appuser::with('application', 'application.plateforms')->where('id', $this->id)->first();
+        $query = Appuser::with('application', 'application.plateforms')->where('device_id', $this->id)->first();
 
         return [
 

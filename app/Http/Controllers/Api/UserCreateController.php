@@ -33,7 +33,7 @@ class UserCreateController extends Controller
 
              return new JsonResponse([
                                     'success' => true,
-                                    'users' => new AppUserCollection($users)
+                                    'users' => new AppUserCollection($request->get('device_id')),
                                     ]);
 
         }
@@ -54,7 +54,7 @@ class UserCreateController extends Controller
 
     	 return new JsonResponse([
             'success' => true,
-            'users' => new AppUserCollection($users)
+            'users' => new AppUserCollection($request->get('device_id')),
         ]);
 
     }
