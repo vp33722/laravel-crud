@@ -24,4 +24,14 @@ class Application extends Model
     {
         return $this->belongsTo(Plateform::class, 'app_platform_id', 'id');
     }
+
+    public function getIsForceUpdateAttribute($value)
+    {
+        return ($value==0) ? 'false' : 'true';
+    }
+
+    public function getIsOnlyBannerAttribute($value)
+    {
+        return ($value==0) ? 'false' : 'true';
+    }
 }
