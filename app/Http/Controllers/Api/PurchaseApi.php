@@ -38,7 +38,7 @@ class PurchaseApi extends Controller
             return new JsonResponse([
 
                    'success'=>true,
-                   'device_id' =>new PurchaseApiResourceCollection($request->get('device_id'),    
+                   'device_id' =>new PurchaseApiResourceCollection($request->get('device_id')),    
 
             ]);
         }
