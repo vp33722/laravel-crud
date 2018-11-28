@@ -137,8 +137,8 @@ class ApplicationController extends Controller
                 'developer_name'   => $request->get('developer_name'),
                 'developer_apps'   => $request->get('developer_apps'),
                 'generated_in_app' => $request->get('generated_in_app'),
-                'is_force_update'  => ($request->get('is_force_update')) ? 1 : 0,
-                'is_only_banner'   => ($request->get('is_only_banner')) ? 1 : 0,
+                'is_force_update'  => $request->get('is_force_update'),
+                'is_only_banner'   => $request->get('is_only_banner'),
 
             ));
 

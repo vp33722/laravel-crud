@@ -34,4 +34,14 @@ class Application extends Model
     {
         return ($value==0) ? 'false' : 'true';
     }
+
+    public function setIsForceUpdateAttribute($value)
+    {
+        $this->attributes['is_force_update'] = return ($value==0) ? 1 : 0;
+    }
+     public function setIsOnlyBannerAttribute($value)
+    {
+         $this->attributes['is_only_banner'] = return ($value==0) ? 1 : 0;
+    }
+
 }

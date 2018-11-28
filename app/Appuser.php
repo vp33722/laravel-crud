@@ -45,6 +45,9 @@ class Appuser extends Model
         return ($value==0) ? 'false' : 'true';
     }
 
+    
+
+
   
 	
 	
