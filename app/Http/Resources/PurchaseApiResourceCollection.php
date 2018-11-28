@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Application;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ApplicationResourceCollection extends ResourceCollection
+class PurchaseApiResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -29,6 +29,9 @@ class ApplicationResourceCollection extends ResourceCollection
            $item =  ($item === null ? "" : $item);
           
          });
+      
+
+
       return $query;
         }
     

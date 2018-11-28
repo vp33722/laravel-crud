@@ -11,7 +11,7 @@ class PurchaseApi extends Controller
 {
     public function updateApp(Request $request)
     {
-            $days=Carbon::now()->addDay($request->get('daysToAdd'));
+    $days=Carbon::now()->addDay($request->get('daysToAdd'));
                
 
         $users=[
@@ -38,7 +38,7 @@ class PurchaseApi extends Controller
             return new JsonResponse([
 
                    'success'=>true,
-                   'Data'    =>Appuser::where('device_id',$request->get('device_id'))->first(),    
+                   'device_id' =>new PurchaseApiResourceCollection($request->get('device_id'),    
 
             ]);
         }
