@@ -29,14 +29,7 @@ class PurchaseApi extends Controller
                 [
 
                     $users[$request->get('nameOfFlag')]  => 1,
-                    'last_date_of_subscription'          =>if($request->get('daysToAdd'))
-                                                            {
-                                                                $days;
-                                                            }
-                                                            else
-                                                            {
-                                                                $days="";
-                                                            }
+                    'last_date_of_subscription'          =>($request->get('daysToAdd')) ? $days : '',
                 ]
 
 
