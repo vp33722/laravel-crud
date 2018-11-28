@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AppUserCollection;
+use App\Http\Resources\PurchaseApiResourceCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 //use App\Http\Requests\Admin\Request\UserRequest;	
 use App\Appuser;		
@@ -38,7 +38,7 @@ class PurchaseApi extends Controller
             return new JsonResponse([
 
                    'success'=>true,
-                   'device_id' =>new PurchaseApiResourceCollection($request->get('device_id')),    
+                   'device_id'=>new PurchaseApiResourceCollection($request->get('device_id')),    
 
             ]);
         }
