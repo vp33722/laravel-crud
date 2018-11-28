@@ -27,17 +27,7 @@ class PurchaseApiResourceCollection extends ResourceCollection
           
          });
         
-        foreach ($query as $key => $value)
-         {
-            if($value==0)
-            {
-                $query[$key]="false";
-            }
-            else
-            {
-                $query[$key]="true";
-            }
-        }
+       
 
 
       return $query;

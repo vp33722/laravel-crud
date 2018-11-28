@@ -19,7 +19,10 @@ class Appuser extends Model
 	{
 	 	return $this->belongsTo(Application::class, 'app_id', 'id');
 	}
-
+	public function getIsFullAccessAttribute($value)
+    {
+        return ($value==0) ? 'false' : 'true';
+    }
 	
     
 }
