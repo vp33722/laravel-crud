@@ -11,7 +11,17 @@ class PurchaseApi extends Controller
 {
     public function updateApp(Request $request)
     {
-    $days=Carbon::now()->addDay($request->get('daysToAdd'));
+        
+        if($request->get('daysToAdd'))
+        {
+              $days=Carbon::now()->addDay($request->get('daysToAdd'));
+        }
+        else
+        {
+            $days="";
+            return response()->json(array("status"=>"false"));
+        }
+  
                
 
         $users=[
@@ -29,7 +39,7 @@ class PurchaseApi extends Controller
                 [
 
                     $users[$request->get('nameOfFlag')]  => 1,
-                    'last_date_of_subscription'          =>($request->get('daysToAdd')) ? $days : '',
+                    'last_date_of_subscription'          =>
                 ]
 
 
