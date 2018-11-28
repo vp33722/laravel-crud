@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Resources;
-
-use App\Application;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-
+use App\Appuser;
 class PurchaseApiResourceCollection extends ResourceCollection
 {
     /**
