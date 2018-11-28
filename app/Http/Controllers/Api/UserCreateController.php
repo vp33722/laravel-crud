@@ -12,6 +12,34 @@ class UserCreateController extends Controller
 {
     public function store(UserRequest $request)
     {
+        $users=Appuser::where('device_id',$request->get('deviceId'))->count();
+
+        if($users>0)
+        {
+
+            $updates=Appuser::where('device_id',$request->get('deviceId'))->update(
+
+                [
+
+                  'country'       =>$request->get('country'),
+                  'device_type'   =>$request->get('deviceType'),
+                  'os_version'    =>$request->get('osVersion'),
+                  'app_version'   =>$request->get('appVersion'),   
+
+
+                ]
+
+            );
+
+             return new JsonResponse([
+                                    'success' => true,
+                                    'users' => new AppUserCollection($users)
+                                    ]);
+
+        }
+
+
+
     	$users=Appuser::create([
 
     		'app_id'		=>$request->get('appId'),
