@@ -11,51 +11,55 @@ use App\Appuser;
 class UserCreateController extends Controller
 {
     public function store(UserRequest $request)
-    {
-        $users=Appuser::where('device_id',$request->get('deviceId'))->count();
-
-        if($users>0)
-        {
-
-            $updates=Appuser::where('device_id',$request->get('deviceId'))->update(
+    {   
+       $count=Appuser::where('device_id',$request->get('device_id'))->count();
+       
+       if($count>0)
+       {
+        $updates=Appuser::where('device_id',$request->get('deviceId'))->update(
 
                 [
-
                   'country'       =>$request->get('country'),
                   'device_type'   =>$request->get('deviceType'),
                   'os_version'    =>$request->get('osVersion'),
                   'app_version'   =>$request->get('appVersion'),   
-
-
                 ]
 
-            );
+               );
 
-             return new JsonResponse([
-                                    'success' => true,
-                                    'users' => new AppUserCollection($request->get('device_id')),
-                                    ]);
+            if($updates>0)
+            {
+                $users=Appuser::select('id')->where('device_id',$request->get('device_id'))->first();
+                return new JsonResponse([
+                                        'success' => true,
+                                        'users' => new AppUserCollection($users)
+                                        ]);
+
+            }
+
+       } 
+
+       else
+       {
+        	$users=Appuser::create([
+
+        		'app_id'		=>$request->get('appId'),
+        		'device_id'		=>$request->get('deviceId'),
+        		'country'		=>$request->get('country'),
+        		'device_type'	=>$request->get('deviceType'),
+        		'os_version'	=>$request->get('osVersion'),
+        		'app_version'	=>$request->get('appVersion'),
+
+
+        	]);
+
+        	 return new JsonResponse([
+                'success' => true,
+                'users' => new AppUserCollection($users)
+            ]);
 
         }
 
-
-
-    	$users=Appuser::create([
-
-    		'app_id'		=>$request->get('appId'),
-    		'device_id'		=>$request->get('deviceId'),
-    		'country'		=>$request->get('country'),
-    		'device_type'	=>$request->get('deviceType'),
-    		'os_version'	=>$request->get('osVersion'),
-    		'app_version'	=>$request->get('appVersion'),
-
-
-    	]);
-
-    	 return new JsonResponse([
-            'success' => true,
-            'users' => new AppUserCollection($request->get('device_id')),
-        ]);
 
     }
 }
