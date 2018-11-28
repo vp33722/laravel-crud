@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Resources;
-
-use App\Application;
-use App\Appuser;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class AppUserCollection extends ResourceCollection
@@ -14,35 +11,25 @@ class AppUserCollection extends ResourceCollection
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-
-    public function __construct($users)
-    {
-        $this->id = $users->id;
-
-    }
-
     public function toArray($request)
     {
 
-        $query = Appuser::with('application', 'application.plateforms')->where('id', $this->id)->first();
-
         return [
 
-            'Plateform'                 => $query->application->plateforms->name,
-            'Application'               => $query->application->name,
-            'userId'                    => $query->id,
-            'device_id'                 => $query->device_id,
-            'country'                   => $query->country,
-            'device_type'               => $query->device_type,
-            'os_version'                => $query->os_version,
-            'app_version'               => $query->app_version,
-            'is_full_access'            => ($query->is_full_access) ? 'yes' : 'no',
-            'purchase_ads'              => ($query->purchase_ads) ? 'yes' : 'no',
-            'is_purchase_watermark'     => ($query->is_purchase_watermark) ? 'yes' : 'no',
-            'is_purchase_unlimited'     => ($query->is_purchase_unlimited) ? 'yes' : 'no',
-            'is_purchase_subscription'  => ($query->is_purchase_subscription) ? 'yes' : 'no',
-            'last_date_of_subscription' => ($query->last_date_of_subscription) ?
-                                           $query->$last_date_of_subscription : '',
+            'Plateform'                 => (string)$this->application->plateforms->name,
+            'Application'               => (string)$this->application->name,
+            'userId'                    => (string)$this->id,
+            'device_id'                 => (string)$this->device_id,
+            'country'                   => (string)$this->country,
+            'device_type'               => (string)$this->device_type,
+            'os_version'                => (string)$this->os_version,
+            'app_version'               => (string)$this->app_version,
+            'is_full_access'            => (boolean)$this->is_full_access,
+            'purchase_ads'              => (boolean)$this->purchase_ads,
+            'is_purchase_watermark'     => (boolean)$this->is_purchase_watermark,
+            'is_purchase_unlimited'     => (boolean)$this->is_purchase_unlimited,
+            'is_purchase_subscription'  => (boolean)$this->is_purchase_subscription,
+            'last_date_of_subscription' => (string)$this->last_date_of_subscription,
 
         ];
 

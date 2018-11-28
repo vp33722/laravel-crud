@@ -20,31 +20,7 @@ class Appuser extends Model
 	 	return $this->belongsTo(Application::class, 'app_id', 'id');
 	}
 	//Mutator For Display And Api Purpsoe//
-	public function getIsFullAccessAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
-    public function getPurchaseAdsAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
-    public function getIsPurchaseUnlimitedAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
-    public function getIsPurchaseWatermarkAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
-    public function getIsPurchaseSubscriptionAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
+	
     
 
 

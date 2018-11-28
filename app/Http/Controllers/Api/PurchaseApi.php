@@ -34,7 +34,7 @@ class PurchaseApi extends Controller
 
 
                 ); 
-
+              $users=  
             return new JsonResponse([
 
                    'success'=>true,

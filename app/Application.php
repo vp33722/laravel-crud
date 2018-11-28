@@ -25,23 +25,6 @@ class Application extends Model
         return $this->belongsTo(Plateform::class, 'app_platform_id', 'id');
     }
 
-    public function getIsForceUpdateAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
-    public function getIsOnlyBannerAttribute($value)
-    {
-        return ($value==0) ? 'false' : 'true';
-    }
-
-    public function setIsForceUpdateAttribute($value)
-    {
-        return $this->attributes['is_force_update'] = ($value==0) ? 1 : 0;
-    }
-     public function setIsOnlyBannerAttribute($value)
-    {
-         return $this->attributes['is_only_banner'] = ($value==0) ? 1 : 0;
-    }
+   
 
 }

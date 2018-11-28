@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Appuser;
 class PurchaseApiResourceCollection extends ResourceCollection
 {
     /**
@@ -10,13 +9,7 @@ class PurchaseApiResourceCollection extends ResourceCollection
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function __construct($device_id)
-    {
-        $this->device_id=$device_id;
-
-    }
-    
-
+   
     public function toArray($request)
     {
         $query=Appuser::where('device_id',$this->device_id)->first()->toArray();

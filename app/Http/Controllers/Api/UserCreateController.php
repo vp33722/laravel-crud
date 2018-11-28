@@ -29,13 +29,15 @@ class UserCreateController extends Controller
 
             if($updates>0)
             {
-                $users=Appuser::select('id')->where('device_id',$request->get('device_id'))->first();
+                
+              $users=Appuser::with('application', 'application.plateforms')->where('device_id', $request->get('device_id'))->first();  
+
                 return new JsonResponse([
                                         'success' => true,
                                         'users' => new AppUserCollection($users)
                                         ]);
 
-            }
+        }
 
        } 
 
