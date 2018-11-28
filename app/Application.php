@@ -37,11 +37,11 @@ class Application extends Model
 
     public function setIsForceUpdateAttribute($value)
     {
-        $this->attributes['is_force_update'] = return ($value==0) ? 1 : 0;
+        return $this->attributes['is_force_update'] = ($value==0) ? 1 : 0;
     }
      public function setIsOnlyBannerAttribute($value)
     {
-         $this->attributes['is_only_banner'] = return ($value==0) ? 1 : 0;
+         return $this->attributes['is_only_banner'] = ($value==0) ? 1 : 0;
     }
 
 }
