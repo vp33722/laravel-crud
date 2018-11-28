@@ -35,9 +35,8 @@ class UserCreateController extends Controller
                 return new JsonResponse([
                                         'success' => true,
                                         'users' => new AppUserCollection($users)
-                                        ]);
-
-        }
+                                        ]) 
+            }
 
        } 
 
@@ -55,6 +54,8 @@ class UserCreateController extends Controller
 
         	]);
 
+          $users=Appuser::with('application', 'application.plateforms')->where('device_id', $request->get('device_id'))->first();
+          
         	 return new JsonResponse([
                 'success' => true,
                 'users' => new AppUserCollection($users)
